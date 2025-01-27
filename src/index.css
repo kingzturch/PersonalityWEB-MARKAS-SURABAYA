@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* index.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #c90028;
+}
+
+.form-container {
+  background-color: #c90028;
+  color: white;
+  padding: 2em;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.input-group .icon {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #c90028;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+button {
+  background-color: #4a4a4a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.image-section{
+  clip-path: polygon(0 0, 67% 0%, 96% 12%, 80% 84%, 58% 100%, 0 100%, 0 0%);
+}
+
+button:hover {
+  background-color: #333;
+}
+
+.image-container {
+  display: none; /* Optional: jika ingin menyembunyikan gambar pada layar kecil */
+}
+
+.question, .login-form, .answerOption, .questionCount, .result {
+  font-family: Lexend Deca, sans-serif, Arial, Helvetica;
+}
+
+.bgpage {
+  @apply absolute top-0 left-0 w-full h-full object-cover z-0;
+}
+
+.gradient-mask {
+  @apply absolute top-0 left-0 w-full h-full z-10;
+  background: linear-gradient(
+    to bottom right,
+    rgba(218, 30, 61, 1) 0%,
+    rgba(218, 30, 61, 1) 45%,
+    rgba(218, 30, 61, 0) 100%
+  );
+}
+
+@media (min-width: 1280px) {
+  .container {
+    flex-direction: row;
+  }
+  .image-container {
+    display: block;
+    width: 50%;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  .flex-row a,
+  .flex-row button {
+    width: 41%; /* Set tombol agar memenuhi lebar kontainer */
+  }
+  .questionCount {
+    @apply xl:text-4xl;
+  }
+
+  .question {
+    @apply xl:text-2xl;
+  }
+
+  .radioContent {
+    @apply xl:text-lg;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+  .image-container {
+    display: block;
+    width: 50%;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  .flex-row a,
+  .flex-row button {
+    width: 41%; /* Set tombol agar memenuhi lebar kontainer */
+  }
+
+  .questionCount {
+    @apply lg:text-3xl;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+  .image-container {
+    display: block;
+    width: 50%;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  .flex-row a,
+  .flex-row button {
+    width: fit-content; /* Set tombol agar memenuhi lebar kontainer */
+  }
+
+  .questionCount {
+    @apply md:text-2xl;
+  }
+
+  .question {
+    @apply md:text-xl;
+  }
+
+  .radioContent {
+    @apply md:text-base;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    flex-direction: row;
+  }
+  .image-container {
+    display: block;
+    width: 50%;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  .flex-row a,
+  .flex-row button {
+    width: fit-content; /* Set tombol agar memenuhi lebar kontainer */
+  }
+}
+
+/* Result Card */
+
+/* ResultCard.css */
+
+.result-card {
+  font-family: Lexend Deca, sans-serif, Arial, Helvetica;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.result-card .image-container {
+  width: 100%;
+  max-width: 225px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 14px;
+}
+
+/* Animation for fading in and sliding up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE10+ */
+}
+
+.answerOption {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE10+ */
+}
+
+.result {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE10+ */
+}
+
+.result-card {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE10+ */
+}
